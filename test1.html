@@ -20,9 +20,21 @@
     font-size: 1.25em;
     color: white;
   }
+  .center-screen {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  min-height: 100vh;
+}
 </style>
 
 <body style="margin : 0px; overflow: hidden;">
+<button onclick="ControlVideo()">
+    <img  crossOrigin="anonymous" src="playBtn.png">
+</button>
+    
+
   <!-- minimal loader shown until image descriptors are loaded -->
   <div class="arjs-loader">
     <div>Loading, pause videsdo wait...</div>
@@ -61,7 +73,15 @@
         window.location.href="http://google.com";
         alert(1);
     }
-    
+    function ControlVideo(){
+       var video = document.querySelector('myvideo')
+        if (video.paused == true) {
+        video.play();
+      } else {
+        video.pause();
+      }
+       
+    }
   window.onload = function() {
     document
         .querySelector("#button")
