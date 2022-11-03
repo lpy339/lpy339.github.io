@@ -27,9 +27,9 @@
   <div class="arjs-loader">
     <div>Loading, please w...</div>
   </div>
-  <div style='position: fixed; top: 10px; width:100%; text-align: center; z-index: 1; display:none' id="pauseDiv">
+  <div style='position: fixed; top: 50%; width:100%; text-align: center; z-index: 1; display:block' id="pauseDiv">
     <button onclick="playVideo()" id="pauseBtn">
-       Stop
+    <img src="playBtn.png" alt="" style="width: 50;height: 50;" >
     </button>
 </div>
   <a-scene
@@ -101,8 +101,8 @@
           this.vid = document.querySelector("#myvideo");
 
           marker.addEventListener('markerFound', function () {
-            document.getElementById('pauseDiv').style.display = 'block';
-            this.vid.play();
+           document.getElementById('pauseDiv').style.display = 'block';
+           this.vid.play();
           }.bind(this));
 
   marker.addEventListener('markerLost', function() {
