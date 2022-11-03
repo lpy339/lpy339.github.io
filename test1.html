@@ -25,10 +25,10 @@
 <body style="margin : 0px; overflow: hidden;">
   <!-- minimal loader shown until image descriptors are loaded -->
   <div class="arjs-loader">
-    <div>Loading, test plat aledddrt wait...</div>
+    <div>Loading, asd asd sad wait...</div>
   </div>
   <div style='position: fixed; top: 10px; width:100%; text-align: center; z-index: 1;'>
-    <button>
+    <button onclick="playVideo()">
        SADASDASD
     </button>
 </div>
@@ -67,7 +67,15 @@
         window.location.href="http://google.com";
         alert(1);
     }
-    
+    function playVideo(){
+        var video = document.getElementById('#myvideo')
+            if (video.paused ){
+                video.play()
+            }else{
+                video.pause()
+            }
+        
+    }
   window.onload = function() {
     document
         .querySelector(".clickable")
