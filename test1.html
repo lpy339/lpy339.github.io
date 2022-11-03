@@ -104,9 +104,13 @@
 
   marker.addEventListener('markerLost', function() {
     //alert(2);
+    this.ImgBtn = document.querySelector('#btnImg')
+    this.ImgBtn.src = 'pause.png'
+
     this.pause.style.visibility = 'hidden';
       this.vid.pause();
       this.vid.currentTime = 0;
+
   }.bind(this));
       }
   });
