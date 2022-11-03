@@ -25,7 +25,7 @@
 <body style="margin : 0px; overflow: hidden;">
   <!-- minimal loader shown until image descriptors are loaded -->
   <div class="arjs-loader">
-    <div>Loading, please wait...</div>
+    <div>Loading, please wsasdait...</div>
   </div>
   <div style='position: fixed; top: 70%; width:100%; text-align: center; z-index: 1;'>
     <button onclick="playVideo()" id="pauseBtn" style=" display:none">
@@ -83,9 +83,8 @@
     }
     }
   window.onload = function() {
-    document
-        .querySelector("#arV")
-        .addEventListener("click", function () {
+    this.vids = document.querySelector("#myvideo");
+    this.vids.addEventListener("click", function () {
           playVideo()
         });
      AFRAME.registerComponent('clickhandler', {
@@ -101,11 +100,11 @@
       init: function () {
           var marker = this.el;
 
-          this.vid = document.querySelector("#myvideo");
+        this.vid = document.querySelector("#myvideo");
         this.play = document.querySelector('#playBtn')
         this.pause = document.querySelector('#pauseBtn')
           marker.addEventListener('markerFound', function () {
-            this.pause.style.display = 'block';
+        this.pause.style.display = 'block';
            this.vid.play();
           }.bind(this));
 
