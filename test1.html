@@ -25,7 +25,7 @@
 <body style="margin : 0px; overflow: hidden;">
   <!-- minimal loader shown until image descriptors are loaded -->
   <div class="arjs-loader">
-    <div>Loading, test pause 2 wait...</div>
+    <div>Loading, test pause alert wait...</div>
   </div>
   <a-scene
     vr-mode-ui="enabled: false;"
@@ -65,7 +65,7 @@
   window.onload = function() {
 
     document.getElementById('#arV').addEventListener("click", 
-      document.querySelector('#myvideo').pause()
+      alert('click')
       )
 
      AFRAME.registerComponent('clickhandler', {
