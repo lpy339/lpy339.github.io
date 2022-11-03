@@ -46,16 +46,13 @@
     <a-nft
     videohandler
     type="nft"
-    url="ARDrLuk2"
+    url="phone"
     smooth="true"
-      smoothCount="10"
-      smoothTolerance=".01"
-      smoothThreshold="5"
+    smoothCount="50"
+    smoothTolerance="0.01"
+    smoothThreshold="5"
     >
-
-      </a-entity>
-      <a-video src="#myvideo" id="arV" width="500" height="250" rotation="-90 0 0" scale="1 1 1"  position="250 -250 -300" clickhandler class="clickable" ></a-video>
-
+      <a-video src="#myvideo" id="arV" width="500" height="250" rotation="-90 0 0" scale="1 1 1"  position="250 -250 -300"  class="clickable" ></a-video>
     </a-nft>
     <a-entity camera></a-entity>
   </a-scene>
@@ -81,15 +78,6 @@
     }
     }
   window.onload = function() {
-
-     AFRAME.registerComponent('clickhandler', {
-      init: function() {
-        this.vid = document.querySelector("#myvideo");
-
-          this.el.addEventListener('click', () => {
-            this.vid.pause();
-        });
-  }});
     
   AFRAME.registerComponent('videohandler', {
       init: function () {
@@ -103,10 +91,8 @@
           }.bind(this));
 
   marker.addEventListener('markerLost', function() {
-    //alert(2);
     this.ImgBtn = document.querySelector('#btnImg')
     this.ImgBtn.src = 'pause.png'
-
     this.pause.style.visibility = 'hidden';
       this.vid.pause();
       this.vid.currentTime = 0;
