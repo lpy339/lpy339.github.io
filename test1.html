@@ -25,7 +25,7 @@
 <body style="margin : 0px; overflow: hidden;">
   <!-- minimal loader shown until image descriptors are loaded -->
   <div class="arjs-loader">
-    <div>Loading, test plat alert wait...</div>
+    <div>Loading, pause video wait...</div>
   </div>
   <a-scene
     vr-mode-ui="enabled: false;"
@@ -50,7 +50,8 @@
 
       </a-entity>
       <a-video src="#myvideo" id="arV" width="500" height="250" rotation="-90 0 0" scale="1 1 1"  position="250 -250 -300" clickhandler class="clickable" ></a-video>
-     
+      <a-image src="Speaker.png" position="150 -200 0" rotation="-90 0 0" clickhandler class="clickable" scale="50 50 1" id="button"></a-image>
+
     </a-nft>
     <a-entity camera></a-entity>
   </a-scene>
@@ -63,11 +64,14 @@
     }
     
   window.onload = function() {
-
-    // document.getElementById('#arV').addEventListener("click", 
-    //   alert('click')
-    //   )
-
+    document
+        .querySelector("#button")
+        .addEventListener("click", function () {
+          // here you can change also a-scene or a-entity properties, like
+          // changing your 3D model source, size, position and so on
+          // or you can just open links, trigger actions...
+          document.querySelector("#myvideo").pause()
+        });
      AFRAME.registerComponent('clickhandler', {
       init: function() {
         this.vid = document.querySelector("#myvideo");
