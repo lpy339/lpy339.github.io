@@ -1,6 +1,6 @@
 <script src="https://cdn.jsdelivr.net/gh/aframevr/aframe@1c2407b26c61958baa93967b5412487cd94b290b/dist/aframe-master.min.js"></script>
 <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar-nft.js"></script>
-
+<script src="https://code.jquery.com/jquery-3.6.1.slim.min.js" integrity="sha256-w8CvhFs7iHNVUtnSP0YKEg00p9Ih13rlL9zGqvLdePA=" crossorigin="anonymous"></script>
 <style>
   .arjs-loader {
     height: 100%;
@@ -25,7 +25,7 @@
 <body style="margin : 0px; overflow: hidden;">
   <!-- minimal loader shown until image descriptors are loaded -->
   <div class="arjs-loader">
-    <div>Loading, please w...</div>
+    <div>Loading, pleassse w...</div>
   </div>
   <div style='position: fixed; top: 70%; width:100%; text-align: center; z-index: 1;'>
     <button onclick="playVideo()" id="pauseBtn" style=" display:block">
@@ -74,19 +74,19 @@
         this.vid = document.querySelector("#myvideo");
         if( this.vid.paused){
             this.vid.play();
-            document.querySelector("#pauseBtn").style.display = 'block';
-            document.querySelector("#playBtn").style.display = 'none';
+        $("#pauseBtn").toggle();
+        $("#playBtn").toggle();
         }else{
         this.vid.pause()
-        document.querySelector("#pauseBtn").style.display = 'none';
-        document.querySelector("#playBtn").style.display = 'block';
+        $("#pauseBtn").toggle();
+        $("#playBtn").toggle();
     }
     }
   window.onload = function() {
-    this.vids = document.querySelector("#arV");
-    this.vids.addEventListener("click", function () {
-          playVideo()
-        });
+    // this.vids = document.querySelector("#arV");
+    // this.vids.addEventListener("click", function () {
+    //       playVideo()
+    //     });
      AFRAME.registerComponent('clickhandler', {
       init: function() {
         this.vid = document.querySelector("#myvideo");
@@ -104,13 +104,13 @@
         this.play = document.querySelector('#playBtn')
         this.pause = document.querySelector('#pauseBtn')
           marker.addEventListener('markerFound', function () {
-        this.pause.style.display = 'block';
+        $('#pauseBtn').show();
            this.vid.play();
           }.bind(this));
 
   marker.addEventListener('markerLost', function() {
     //alert(2);
-    this.play.style.display = 'block';
+    $('playBtn').show()
       this.vid.pause();
       this.vid.currentTime = 0;
   }.bind(this));
