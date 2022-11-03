@@ -25,13 +25,13 @@
 <body style="margin : 0px; overflow: hidden;">
   <!-- minimal loader shown until image descriptors are loaded -->
   <div class="arjs-loader">
-    <div>Loading, pslease w...</div>
+    <div>Loading, resres w...</div>
   </div>
   <div style='position: fixed; top: 70%; width:100%; text-align: center; z-index: 1;'>
-    <button onclick="playVideo()" id="pauseBtn" style=" display:block">
+    <button onclick="playVideo()" id="pauseBtn" style="display:block">
     <img src="pause.png" alt="" style="width: 50;height: 50;" >
     </button>
-    <button onclick="playVideo()" id="playBtn" style=" display:none">
+    <button onclick="playVideo()" id="playBtn" style="display:block">
         <img src="playBtn.png" alt="" style="width: 50;height: 50;" >
     </button>
 
@@ -76,12 +76,12 @@
         this.play = document.querySelector('#playBtn')
         if( this.vid.paused){
             this.vid.play();
-            this.pause.style.display = 'block';
-            this.play.style.display = 'none';
+            // this.pause.style.display = 'block';
+            // this.play.style.display = 'none';
         }else{
         this.vid.pause()
-        this.pause.style.display = 'none';
-        this.play.style.display = 'block';
+        // this.pause.style.display = 'none';
+        // this.play.style.display = 'block';
     }
     }
   window.onload = function() {
@@ -106,13 +106,13 @@
         this.play = document.querySelector('#playBtn')
         this.pause = document.querySelector('#pauseBtn')
           marker.addEventListener('markerFound', function () {
-        this.pause.style.display = 'block';
+        // this.pause.style.display = 'block';
            this.vid.play();
           }.bind(this));
 
   marker.addEventListener('markerLost', function() {
     //alert(2);
-    this.play.style.display = 'block';
+    // this.play.style.display = 'block';
       this.vid.pause();
       this.vid.currentTime = 0;
   }.bind(this));
