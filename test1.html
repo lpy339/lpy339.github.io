@@ -27,11 +27,7 @@
   <div class="arjs-loader">
     <div>Loading, please wait...</div>
   </div>
-  <div style='position: fixed; top: 70%; width:100%; text-align: center; z-index: 1;'>
-    <button onclick="playVideo()" id="pauseBtn" >
-    <img src="pause.png" alt="" style="width: 50;height: 50;" id="btnImg" >
-    </button>
-</div>
+ 
   <a-scene
     vr-mode-ui="enabled: false;"
     renderer="logarithmicDepthBuffer: true; precision: medium;"
@@ -55,7 +51,12 @@
 
       </a-entity>
       <a-video src="#myvideo" id="arV" width="500" height="250" rotation="-90 0 0" scale="1 1 1"  position="250 -250 -300" clickhandler class="clickable" ></a-video>
-
+      <a-entity  htmlembed> <div style='position: fixed; top: 70%; width:100%; text-align: center; z-index: 1;'>
+        <button onclick="playVideo()" id="pauseBtn" >
+        <img src="pause.png" alt="" style="width: 50;height: 50;" id="btnImg" >
+        </button>
+    </div>
+      </a-entity>
     </a-nft>
     <a-entity camera></a-entity>
   </a-scene>
@@ -96,15 +97,15 @@
           var marker = this.el;
 
         this.vid = document.querySelector("#myvideo");
-        this.pause = document.querySelector('#pauseBtn')
+        // this.pause = document.querySelector('#pauseBtn')
           marker.addEventListener('markerFound', function () {
-        this.pause.style.display = 'block';
+        // this.pause.style.display = 'block';
            this.vid.play();
           }.bind(this));
 
   marker.addEventListener('markerLost', function() {
     //alert(2);
-    this.pause.style.display = 'none';
+    // this.pause.style.display = 'none';
       this.vid.pause();
       this.vid.currentTime = 0;
   }.bind(this));
