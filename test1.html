@@ -25,14 +25,16 @@
 <body style="margin : 0px; overflow: hidden;">
   <!-- minimal loader shown until image descriptors are loaded -->
   <div class="arjs-loader">
-    <div>Loading, pleasewwa wait...</div>
+    <div>Loading, plessasewwa wait...</div>
   </div>
   <div style='position: fixed; top: 70%; width:100%; text-align: center; z-index: 1;'>
     <button onclick="playVideo()" id="pauseBtn">
-    <img src="playBtn.png" alt="" style="width: 50;height: 50; display:none" id = "playBtn">
-    <img src="pause.png" alt="" style="width: 50;height: 50; display:none" id = "pauseBtn">
+    <img src="pause.png" alt="" style="width: 50;height: 50; display:none" >
     </button>
-    
+    <button onclick="playVideo()" id="playBtn">
+        <img src="playBtn.png" alt="" style="width: 50;height: 50; display:none" >
+    </button>
+
 </div>
   <a-scene
     vr-mode-ui="enabled: false;"
@@ -108,7 +110,7 @@
 
   marker.addEventListener('markerLost', function() {
     //alert(2);
-    // document.querySelector('#pauseDiv').style.display = 'none';
+    document.querySelector('#playBtn').style.display = 'block';
       this.vid.pause();
       this.vid.currentTime = 0;
   }.bind(this));
