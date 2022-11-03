@@ -74,9 +74,10 @@
       type="nft"
       url="ARDrLuk2"
       smooth="true"
-      smoothCount="10"
+      smoothCount="100"
       smoothTolerance=".01"
-      smoothThreshold="5" 
+      smoothThreshold="10" 
+      emitevents	='true'
     >
 
       <a-video src="#myvideo" width="500" height="250" rotation="-90 0 0" scale="1 1 1"  position="250 -250 -300" clickhandler class="clickable" ></a-video>
@@ -113,13 +114,7 @@
             this.vid = document.querySelector("#myvideo");
 
             marker.addEventListener('markerFound', function () {
-             // if (confirm("play with sound"))
-              //{
-              //this.vid.muted=false;  
-              //}
-              
               this.vid.play();
-              
             }.bind(this));
 
     marker.addEventListener('markerLost', function() {
