@@ -25,7 +25,7 @@
 <body style="margin : 0px; overflow: hidden;">
   <!-- minimal loader shown until image descriptors are loaded -->
   <div class="arjs-loader">
-    <div>Loading, ss sssss sss wait...</div>
+    <div>Loading,  wait...</div>
   </div>
   <div style='position: fixed; top: 10px; width:100%; text-align: center; z-index: 1;'>
     <button onclick="playVideo()">
@@ -68,9 +68,10 @@
         alert(1);
     }
     function playVideo(){
-        var video = document.getElementsByTagName('video')
+        this.vid = document.querySelector("#myvideo");
 
-                video.pause()
+
+        this.vid.pause()
         
     }
   window.onload = function() {
