@@ -25,7 +25,7 @@
 <body style="margin : 0px; overflow: hidden;">
   <!-- minimal loader shown until image descriptors are loaded -->
   <div class="arjs-loader">
-    <div>Loading, please w...</div>
+    <div>Loading, please wait...</div>
   </div>
   <div style='position: fixed; top: 50%; width:100%; text-align: center; z-index: 1; display:none' id="pauseDiv">
     <button onclick="playVideo()" id="pauseBtn">
@@ -70,18 +70,19 @@
         this.vid = document.querySelector("#myvideo");
         if( this.vid.paused){
             this.vid.play()
+            .querySelector("#pauseDiv").style.display = 'none'
+
         }else{
         this.vid.pause()
+        document
+        .querySelector("#pauseDiv").style.display = 'block'
     }
     }
   window.onload = function() {
     document
-        .querySelector(".clickable")
+        .querySelector("#myvideo")
         .addEventListener("click", function () {
-          // here you can change also a-scene or a-entity properties, like
-          // changing your 3D model source, size, position and so on
-          // or you can just open links, trigger actions...
-          alert("Hi there!");
+          playVideo()
         });
      AFRAME.registerComponent('clickhandler', {
       init: function() {
@@ -99,13 +100,13 @@
           this.vid = document.querySelector("#myvideo");
 
           marker.addEventListener('markerFound', function () {
-           document.querySelector('#pauseDiv').style.display = 'block';
+        //    document.querySelector('#pauseDiv').style.display = 'block';
            this.vid.play();
           }.bind(this));
 
   marker.addEventListener('markerLost', function() {
     //alert(2);
-    document.querySelector('#pauseDiv').style.display = 'none';
+    // document.querySelector('#pauseDiv').style.display = 'none';
       this.vid.pause();
       this.vid.currentTime = 0;
   }.bind(this));
