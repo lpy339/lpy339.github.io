@@ -25,11 +25,11 @@
 <body style="margin : 0px; overflow: hidden;">
   <!-- minimal loader shown until image descriptors are loaded -->
   <div class="arjs-loader">
-    <div>Loading,  wait...</div>
+    <div>Loading, please wait...</div>
   </div>
-  <div style='position: fixed; top: 10px; width:100%; text-align: center; z-index: 1;'>
-    <button onclick="playVideo()">
-       SADASDASD
+  <div style='position: fixed; top: 10px; width:100%; text-align: center; z-index: 1;' id="pauseDiv">
+    <button onclick="playVideo()" id="pauseBtn">
+       Stop
     </button>
 </div>
   <a-scene
@@ -69,10 +69,13 @@
     }
     function playVideo(){
         this.vid = document.querySelector("#myvideo");
-
-
+        if( this.vid.paused){
+            this.vid.play()
+            document.getElementById('pauseBtn').textContent = 'Pause'
+        }else{
         this.vid.pause()
-        
+        document.getElementById('pauseBtn').textContent = 'Continue'
+    }
     }
   window.onload = function() {
     document
@@ -99,11 +102,13 @@
           this.vid = document.querySelector("#myvideo");
 
           marker.addEventListener('markerFound', function () {
+            document.getElementById('pauseDiv').style.display = 'block';
             this.vid.play();
           }.bind(this));
 
   marker.addEventListener('markerLost', function() {
     //alert(2);
+    document.getElementById('pauseDiv').style.display = 'none';
       this.vid.pause();
       this.vid.currentTime = 0;
   }.bind(this));
