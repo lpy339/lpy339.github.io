@@ -1,26 +1,44 @@
 <html>
-    <head>
-        <title>AR.js Basic Projected Camera Example</title>
-        <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
-        <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar-nft.js"></script>
-        <!-- Look-at component. We don't need this now, but we will later. -->
-        <script src="https://unpkg.com/aframe-look-at-component@0.8.0/dist/aframe-look-at-component.min.js"></script>
-    </head>
-    <body>
+  <head>
+    <title>AR.js Basic Projected Camera Example</title>
+    <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+    <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar-nft.js"></script>
+    <!-- Look-at component. We don't need this now, but we will later. -->
+    <script src="https://unpkg.com/aframe-look-at-component@0.8.0/dist/aframe-look-at-component.min.js"></script>
+  </head>
+  <body>
     <a-scene
-        vr-mode-ui="enabled: false"
-        arjs='sourceType: webcam; videoTexture: true; debugUIEnabled: false;'
-        renderer='antialias: true; alpha: true'>
-        <a-assets>
-             <img id="toilet" crossOrigin="anonymous" src="toilet.png">
-         </a-assets>
-            <a-camera gps-projected-camera rotation-reader></a-camera>
-            <a-image src="it-department.png" gps-projected-entity-place='latitude: 22.270312900343736; longitude: 114.23622774687394' scale='10 10 10'></a-image>
-            <a-image src="toilet.png" gps-projected-entity-place='latitude: 22.27028612536403; longitude: 114.23578675997594' scale='10 10 10'></a-image>            
-            <a-image src="toilet.png" gps-projected-entity-place='latitude:22.269404463016052; longitude: 114.23660207739545' scale='10 10 10'></a-image>
-            <a-image src="hsbc.png" gps-projected-entity-place='latitude:22.26934054766966; longitude: 114.23613805524054' scale='10 10 10'></a-image>
+      vr-mode-ui="enabled: false"
+      arjs="sourceType: webcam; videoTexture: true; debugUIEnabled: false;"
+      renderer="antialias: true; alpha: true"
+    >
+      <a-assets>
+        <img id="toilet" crossorigin="anonymous" src="toilet.png" />
+      </a-assets>
+      <a-camera gps-projected-camera rotation-reader></a-camera>
 
-            
-        </a-scene>
-    </body>
+      <!-- location based image -->
+
+      <a-image
+        src="it-department.png"
+        gps-projected-entity-place="latitude: 22.270312900343736; longitude: 114.23622774687394"
+        scale="10 10 10"
+      ></a-image>
+      <a-image
+        src="toilet.png"
+        gps-projected-entity-place="latitude: 22.27028612536403; longitude: 114.23578675997594"
+        scale="10 10 10"
+      ></a-image>
+      <a-image
+        src="toilet.png"
+        gps-projected-entity-place="latitude:22.269404463016052; longitude: 114.23660207739545"
+        scale="10 10 10"
+      ></a-image>
+      <a-image
+        src="hsbc.png"
+        gps-projected-entity-place="latitude:22.26934054766966; longitude: 114.23613805524054"
+        scale="10 10 10"
+      ></a-image>
+    </a-scene>
+  </body>
 </html>
