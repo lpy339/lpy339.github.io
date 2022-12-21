@@ -1,13 +1,14 @@
-<script src="https://cdn.jsdelivr.net/gh/aframevr/aframe@1c2407b26c61958baa93967b5412487cd94b290b/dist/aframe-master.min.js"></script>
-<script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar-nft.js"></script>
+<script src="./aframe-master.min.js"></script>
+<script src="./aframe-ar-nft.js"></script>
 <!-- 
-  todo Vision GUIDE 
-  todo   1. Appeal machine (Image from machine main page)
-  todo   2. Checkout Kiosk guideline (Image from kiosk screen)
-  todo   3. App guideline (Image from App poster)
-  todo   4. Promotional Event (Image from poster)
-  todo   5. Way Finding Website (Geo-location from main building)
-  todo   6. 
+  TODO A platform based that can reuse 
+  TODO 1. Appeal machine (Image from machine main page)
+  TODO 2. Checkout Kiosk guideline (Image from kiosk screen)
+  TODO 3. App guideline (Image from App poster)
+  TODO 4. Promotional Event (Image from poster)
+  TODO 5. Way Finding Website (Geo-location from main building)
+  TODO 6. Hospital Story (Painting or Photo caption)
+  !?INFO  For More Stable video, use a nft with higher level 
 -->
 
 <style>
@@ -48,7 +49,7 @@
     vr-mode-ui="enabled: false;"
     renderer="logarithmicDepthBuffer: true; precision: medium;"
     embedded
-    arjs="trackingMethod: best; sourceType: webcam;debugUIEnabled: true;"
+    arjs="trackingMethod: best; sourceType: webcam;"
   >
     <a-assets>
       <video id="myvideo" preload="auto" loop="true" src="p2.mp4" webkit-playsinline playsinline muted></video>
@@ -60,8 +61,8 @@
       type="nft"
       url="ARDrLuk2"
       smooth="true"
-      smoothCount="50"
-      smoothTolerance="0.01"
+      smoothCount="10"
+      smoothTolerance=".01"
       smoothThreshold="5"
     >
       <a-video
@@ -75,15 +76,7 @@
         class="clickable"
       ></a-video>
     </a-nft>
-    <a-nft
-      videohandler
-      type="nft"
-      url="phone"
-      smooth="true"
-      smoothCount="50"
-      smoothTolerance="0.01"
-      smoothThreshold="5"
-    >
+    <!-- <a-nft videohandler type="nft" url="phone" smooth="true" smoothCount="10" smoothTolerance=".01" smoothThreshold="5">
       <a-video
         src="#myvideo"
         id="arV"
@@ -94,7 +87,7 @@
         position="250 -250 -300"
         class="clickable"
       ></a-video>
-    </a-nft>
+    </a-nft> -->
     <a-entity camera></a-entity>
   </a-scene>
 
