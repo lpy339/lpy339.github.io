@@ -64,8 +64,8 @@
           const testVideo = document.createElement('video');
           const canplayWebm = testVideo.canPlayType('video/webm; codecs="vp8, vorbis"');
           if (canplayWebm == '') {
-            document.querySelector('#paintandquest-video-link').setAttribute('src', '#paintandquest-video-mp4');
-            document.querySelector('#paintandquest-video-mp4').play();
+            document.querySelector('#paintandquest-video-link').setAttribute('src', '#myvideo');
+            document.querySelector('#myvideo').play();
           } else {
             document.querySelector('#paintandquest-video-link').setAttribute('src', '#myvideo');
             document.querySelector('#myvideo').play();
